@@ -16,10 +16,11 @@ npm i mask-price -S
 import maskPrice from 'mask-price';
 
 const mask = maskPrice({
+  locale: 'pt-BR', // (default is en-US) - format currency based on locale
   cents: false // (default is true) - true/false to return cents
 });
 
-console.log(mask(430)); // '4.30'
+console.log(mask(439)); // '4,39'
 ```
 
 ---
