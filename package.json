@@ -1,19 +1,18 @@
 {
-  "version": "1.0.1",
   "name": "mask-price",
   "description": "Mask cents in formatted price.",
+  "version": "1.0.1",
   "author": {
     "name": "Lucas Bento",
     "email": "lucas.bsilva@outlook.com",
     "url": "github.com/lucasbento"
   },
-  "main": "lib/index.js",
-  "scripts": {
-    "start": "babel-node src/index.js",
-    "test": "mocha test --compilers js:babel-core/register && npm run lint",
-    "lint": "eslint .",
-    "build": "babel src -d lib",
-    "prepublish": "npm test && npm run build"
+  "bugs": {
+    "url": "https://github.com/lucasbento/mask-price/issues"
+  },
+  "dependencies": {
+    "fs-promise": "^0.5.0",
+    "intl": "^1.2.4"
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",
@@ -26,18 +25,27 @@
     "eslint-plugin-import": "^1.12.0",
     "mocha": "^2.5.3"
   },
-  "keywords": [
-    "mask",
-    "price",
-    "cents",
-    "currency"
-  ],
-  "dependencies": {
-    "fs-promise": "^0.5.0",
-    "intl": "^1.2.4"
-  },
-  "license": "MIT",
   "directories": {
     "test": "test"
+  },
+  "homepage": "https://github.com/lucasbento/mask-price#readme",
+  "keywords": [
+    "cents",
+    "currency",
+    "mask",
+    "price"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasbento/mask-price"
+  },
+  "scripts": {
+    "build": "babel src -d lib",
+    "lint": "eslint .",
+    "prepublish": "npm test && npm run build",
+    "start": "babel-node src/index.js",
+    "test": "mocha test --compilers js:babel-core/register && npm run lint"
   }
 }
