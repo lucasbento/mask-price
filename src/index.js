@@ -1,7 +1,10 @@
+import intl from 'intl';
+
 class MaskPrice {
   constructor(options = {}) {
     this.options = Object.assign({
-      cents: true
+      cents: true,
+      locale: 'en-US'
     }, options);
   }
 
@@ -14,7 +17,10 @@ class MaskPrice {
     }
 
     price.splice(price.length - 2, 0, '.');
-    price = `${new Number(price.join('')).toFixed(2)}`;
+    price = new intl.NumberFormat(this.options.locale, {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }).format(price.join(''));
 
     if (this.options.cents === true) {
       return {
@@ -25,8 +31,6 @@ class MaskPrice {
 
     return price;
   }
-};
+}
 
-export default (options) => {
-  return new MaskPrice(options);
-};
+export default (options) => new MaskPrice(options);

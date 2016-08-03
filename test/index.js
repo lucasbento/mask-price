@@ -8,7 +8,7 @@ describe('Price', () => {
     }).mask(430);
     const expectValue = {
       cents: 430,
-      price: '4.30'
+      price: '4.30',
     };
 
     expect(price).to.deep.equal(expectValue);
@@ -30,7 +30,17 @@ describe('Price', () => {
     const expectValue = {
       cents: 430,
       price: '4.30'
-    }
+    };
+
+    expect(price).to.deep.equal(expectValue);
+  });
+
+  it('should return with locale', () => {
+    const price = maskPrice({
+      cents: false,
+      locale: 'pt-BR'
+    }).mask(430);
+    const expectValue = '4,30';
 
     expect(price).to.deep.equal(expectValue);
   });
